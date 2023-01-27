@@ -1,0 +1,6 @@
+{
+  "discord": {
+    "token": "INSERT TOKEN HERE",
+    "default_prefix": "$"
+  }
+}
