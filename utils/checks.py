@@ -43,10 +43,11 @@ def certain_channels_only():
         # Ensure the message was sent in a guild.
         if ctx.guild is not None:
             # Ensure the message was sent in that guild's allowed channels.
-            allowed_channels = admin_cog.allowed_channels[ctx.guild.id]
-            if ctx.channel.id in allowed_channels:
-                return True
+            allowed_channels = admin_cog.allowed_channels.get(ctx.guild.id)
+            if allowed_channels:
+                if ctx.channel.id in allowed_channels:
+                    return True
 
-        raise commands.CheckFailure("Only the server or bot owner can do this.")
+        raise commands.CheckFailure("You can't do that in this channel.")
 
     return commands.check(predicate)

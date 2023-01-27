@@ -187,6 +187,7 @@ class StorySearchCog(commands.Cog):
                     embed=story_embed,
                     view=StoryQuoteView(
                         interaction=ctx.interaction,
+                        view_owner=ctx.author,
                         all_pages_content=processed_text,
                         story_data=self.convertor.unstructure(self.story_records["acvr"])
                     )

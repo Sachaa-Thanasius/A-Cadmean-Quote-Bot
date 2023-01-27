@@ -78,13 +78,6 @@ class ACadmeanQuoteBot(commands.Bot):
 
         await self._load_extensions()
 
-        self.tree.clear_commands(guild=None)
-        await self.tree.sync()
-
-        for guild in self.guilds:
-            self.tree.clear_commands(guild=guild)
-            await self.tree.sync(guild=guild)
-
     async def get_prefix(self, message: discord.Message, /) -> list[str] | str:
         if not self.prefixes:
             await self._load_guild_prefixes()
@@ -92,7 +85,7 @@ class ACadmeanQuoteBot(commands.Bot):
         if message.guild is not None:
             return self.prefixes
         else:
-            return "$"
+            return "?"
 
     async def _load_guild_prefixes(self) -> None:
         """Load all prefixes from the bot database."""

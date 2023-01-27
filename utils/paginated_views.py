@@ -92,11 +92,11 @@ class PaginatedEmbedView(View):
         The content on the current page.
     """
 
-    def __init__(self, *, interaction: discord.Interaction, all_pages_content: list[Any], per_page: int = 1) -> None:
+    def __init__(self, *, interaction: discord.Interaction, view_owner: discord.User | discord.Member, all_pages_content: list[Any], per_page: int = 1) -> None:
         super().__init__(timeout=60.0)
 
         self.latest_interaction = interaction
-        self.initial_user = interaction.user
+        self.initial_user = view_owner
 
         # Page-related instance variables.
         self.per_page = per_page
