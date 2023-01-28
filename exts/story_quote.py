@@ -27,8 +27,6 @@ if TYPE_CHECKING:
 LOGGER = logging.getLogger(__name__)
 PROJECT_PATH = Path(__file__).resolve().parents[1]
 
-_MISSING = object()  # sentinel value
-
 
 @define
 class StoryInfo:
@@ -130,7 +128,7 @@ class StorySearchCog(commands.Cog):
 
         Parameters
         ----------
-        ctx : :class:`discord.ext.commands.Context`
+        ctx : :class:`commands.Context`
             The invocation context where the command was called.
         """
 
